@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #060b14;
+  font-family: 'Courier New', 'Consolas', ui-monospace, monospace;
+  -webkit-font-smoothing: antialiased;
+  color: #c8fce0;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ── Keyframe Animations ─────────────────────────────────────────── */
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 6px #00ff9d22, 0 0 12px #00ff9d11; }
+  50%       { box-shadow: 0 0 16px #00ff9d44, 0 0 32px #00ff9d22; }
+}
+
+@keyframes border-glow {
+  0%, 100% { border-color: #1a2a3a; }
+  50%       { border-color: #00ff9d55; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scan {
+  0%   { transform: translateY(-100%); opacity: 0.03; }
+  100% { transform: translateY(100vh); opacity: 0.03; }
+}
+
+@keyframes status-ping {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes matrix-flicker {
+  0%, 98%, 100% { opacity: 1; }
+  99%            { opacity: 0.85; }
+}
+
+@keyframes type-cursor {
+  0%, 100% { border-right-color: #00ff9d; }
+  50%       { border-right-color: transparent; }
+}
+
+/* ── Utility Classes ─────────────────────────────────────────────── */
+
+.anim-fade-in {
+  animation: fadeIn 0.4s ease both;
+}
+
+.anim-fade-up {
+  animation: fadeInUp 0.35s ease both;
+}
+
+.anim-slide-in {
+  animation: slide-in 0.3s ease both;
+}
+
+.anim-glow {
+  animation: glow-pulse 2.5s ease-in-out infinite;
+}
+
+.anim-flicker {
+  animation: matrix-flicker 4s ease-in-out infinite;
+}
+
+.cursor-blink::after {
+  content: '█';
+  color: #00ff9d;
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+  font-size: 0.9em;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track { background: #060b14; }
+::-webkit-scrollbar-thumb { background: #1a3a5c; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #00ff9d55; }
+
+/* ── Table row entrance animation ────────────────────────────────── */
+
+.lead-row {
+  animation: fadeInUp 0.25s ease both;
+}
+.lead-row:nth-child(1)  { animation-delay: 0.02s; }
+.lead-row:nth-child(2)  { animation-delay: 0.04s; }
+.lead-row:nth-child(3)  { animation-delay: 0.06s; }
+.lead-row:nth-child(4)  { animation-delay: 0.08s; }
+.lead-row:nth-child(5)  { animation-delay: 0.10s; }
+.lead-row:nth-child(6)  { animation-delay: 0.12s; }
+.lead-row:nth-child(7)  { animation-delay: 0.14s; }
+.lead-row:nth-child(8)  { animation-delay: 0.16s; }
+.lead-row:nth-child(9)  { animation-delay: 0.18s; }
+.lead-row:nth-child(10) { animation-delay: 0.20s; }
+
+/* ── Input focus glow ────────────────────────────────────────────── */
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #00ff9d55 !important;
+  box-shadow: 0 0 0 2px #00ff9d11, 0 0 12px #00ff9d22;
+}
+
+/* ── Button hover transitions ────────────────────────────────────── */
+
+button { transition: all 0.15s ease; }
+
+/* ── Scanline overlay (applied to header) ────────────────────────── */
+
+.scanline-container {
+  position: relative;
+  overflow: hidden;
+}
+.scanline-container::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 40px;
+  background: linear-gradient(transparent, #00ff9d08, transparent);
+  animation: scan 3s linear infinite;
+  pointer-events: none;
+}
