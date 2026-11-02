@@ -103,7 +103,7 @@ export default function Dashboard() {
                 ▣
               </span>
               <span style={{ color: C.text, fontSize: 15, fontWeight: 700, letterSpacing: 1 }}>
-                OSINT_COLDCALL
+                RECONREACH
               </span>
               <span style={{ color: C.textMuted, fontSize: 11 }}>.exe</span>
             </div>
@@ -177,10 +177,10 @@ export default function Dashboard() {
               fontFamily: "inherit",
             }}
           >
-            OSINT COLD OUTREACH
+            RECONREACH
           </h1>
           <p style={{ margin: "8px 0 0", color: C.textSub, fontSize: 13, letterSpacing: 0.5 }}>
-            Passive intelligence gathering → personalized outreach generation
+            OSINT cold outreach · passive intelligence gathering → personalized outreach generation
           </p>
         </div>
       </div>

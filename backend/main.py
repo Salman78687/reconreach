@@ -14,7 +14,7 @@ async def lifespan(_app: FastAPI):
     yield
 
 
-app = FastAPI(title="OSINT Cold Call Platform", version="0.1.0", lifespan=lifespan)
+app = FastAPI(title="ReconReach", version="0.1.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,

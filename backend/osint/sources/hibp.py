@@ -15,7 +15,7 @@ async def check_breaches(email: str, api_key: str) -> dict:
     url = f"https://haveibeenpwned.com/api/v3/breachedaccount/{email}"
     headers = {
         "hibp-api-key": api_key,
-        "User-Agent": "osint-cold-call/1.0",
+        "User-Agent": "ReconReach/1.0 (+https://github.com/Salman78687/reconreach)",
     }
 
     try:

@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for your interest in improving the OSINT Cold Outreach Platform.
+Thanks for your interest in improving ReconReach.
 
 ## Getting set up
 

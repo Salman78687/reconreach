@@ -28,7 +28,7 @@ class Settings(BaseSettings):
     # App
     # Comma-separated origins allowed to call the API (the frontend's URL)
     cors_origins: str = "http://localhost:5173,http://localhost:3000"
-    database_url: str = "sqlite:///./osint_cold_call.db"
+    database_url: str = "sqlite:///./reconreach.db"
 
     class Config:
         env_file = ".env"

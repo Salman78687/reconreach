@@ -20,7 +20,7 @@ async def get_linkedin_profile(name: str | None, company: str | None, linkedin_u
     # Note: LinkedIn aggressively blocks scrapers. We extract what Google snippet gave us.
     # For a production setup, use a LinkedIn scraping service (e.g. Proxycurl).
     headers = {
-        "User-Agent": "osint-outreach-platform/1.0 (+https://github.com/Salman78687/osint-outreach-platform)",
+        "User-Agent": "ReconReach/1.0 (+https://github.com/Salman78687/reconreach)",
     }
 
     try:

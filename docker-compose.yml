@@ -12,7 +12,7 @@ services:
       # Persist the SQLite database across container restarts
       - db_data:/app/data
     environment:
-      DATABASE_URL: sqlite:////app/data/osint_cold_call.db
+      DATABASE_URL: sqlite:////app/data/reconreach.db
     extra_hosts:
       # Lets the container reach an LLM server running on your machine at
       # http://host.docker.internal:<port>/v1 (needed on Linux; built in on Mac/Windows)

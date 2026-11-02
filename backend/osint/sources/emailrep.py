@@ -15,7 +15,7 @@ async def get_email_reputation(email: str) -> dict:
             resp = await client.get(
                 url,
                 headers={
-                    "User-Agent": "osint-cold-call/1.0",
+                    "User-Agent": "ReconReach/1.0 (+https://github.com/Salman78687/reconreach)",
                     "Accept": "application/json",
                 },
             )

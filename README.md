@@ -1,6 +1,6 @@
-# OSINT Cold Outreach Platform
+# ReconReach
 
-Enrich leads (email addresses or phone numbers) with passive, public OSINT data, then generate personalized cold emails, call scripts and LinkedIn messages with any OpenAI-compatible LLM, self-hosted or cloud.
+**OSINT-powered cold outreach.** Enrich leads (email addresses or phone numbers) with passive, public OSINT data, then generate personalized cold emails, call scripts and LinkedIn messages with any OpenAI-compatible LLM, self-hosted or cloud.
 
 > **Please read [Responsible use](#responsible-use) before running this against real people.**
 
@@ -28,8 +28,8 @@ It works out of the box on the **free plan**: no paid API keys are needed. You o
 ### 1. Clone
 
 ```bash
-git clone https://github.com/Salman78687/osint-outreach-platform.git
-cd osint-outreach-platform
+git clone https://github.com/Salman78687/reconreach.git
+cd reconreach
 ```
 
 ### 2. Configure
@@ -180,7 +180,7 @@ All backend settings live in `backend/.env` (copied from [`backend/.env.example`
 | `LLM_MODEL` | `llama3.1` | Model name sent to the endpoint |
 | `GITHUB_TOKEN`, `HIBP_API_KEY`, `CLEARBIT_API_KEY`, `SNOV_CLIENT_ID`, `SNOV_CLIENT_SECRET` | empty | Optional free-plan sources |
 | `HUNTER_API_KEY`, `APOLLO_API_KEY`, `GOOGLE_CSE_API_KEY`, `GOOGLE_CSE_ID`, `TWITTER_BEARER_TOKEN` | empty | Paid-plan sources |
-| `DATABASE_URL` | `sqlite:///./osint_cold_call.db` | SQLAlchemy URL (Docker sets its own) |
+| `DATABASE_URL` | `sqlite:///./reconreach.db` | SQLAlchemy URL (Docker sets its own) |
 | `CORS_ORIGINS` | `http://localhost:5173,http://localhost:3000` | Comma-separated frontend URLs allowed to call the API |
 
 The frontend has one setting, read at build time:
