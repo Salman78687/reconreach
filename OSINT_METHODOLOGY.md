@@ -19,7 +19,7 @@ The pipeline has two modes controlled by `PLAN_TIER` in `backend/.env`:
 | Tier | Sources | API Keys Needed |
 |------|---------|----------------|
 | `free` | GitHub, Gravatar, WHOIS, EmailRep.io, LinkedIn scraper, HIBP*, Clearbit*, Snov.io* | None required (* = runs if key set) |
-| `paid` | Everything in Free + Hunter.io, Apollo.io, Google CSE, Twitter/X, NumVerify | Respective API keys |
+| `paid` | Everything in Free + Hunter.io, Apollo.io, Google CSE, Twitter/X | Respective API keys |
 
 ---
 
@@ -183,7 +183,7 @@ These need the name/company resolved from Wave 1:
 #### LinkedIn Profile Scrape — Free (fragile)
 **File:** `backend/osint/sources/linkedin.py`
 
-If a LinkedIn URL was found in Wave 1, attempts to fetch the public profile page using a Googlebot User-Agent. Parses the `<meta name="description">` tag for headline and summary. LinkedIn increasingly serves login walls — works inconsistently.
+If a LinkedIn URL was found in Wave 1, attempts to fetch the public profile page with a User-Agent that identifies this tool. Parses the `<meta name="description">` tag for headline and summary. LinkedIn increasingly serves login walls — works inconsistently.
 
 If no LinkedIn URL was found and the person's name is known, tries a Google dork first:
 ```
