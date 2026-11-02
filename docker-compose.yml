@@ -4,15 +4,26 @@ services:
     ports:
       - "8000:8000"
     env_file:
-      - ./backend/.env
+      # Copy backend/.env.example to backend/.env and fill it in.
+      # Without it the app still starts on the free plan with default settings.
+      - path: ./backend/.env
+        required: false
     volumes:
       # Persist the SQLite database across container restarts
       - db_data:/app/data
     environment:
       DATABASE_URL: sqlite:////app/data/osint_cold_call.db
+    extra_hosts:
+      # Lets the container reach an LLM server running on your machine at
+      # http://host.docker.internal:<port>/v1 (needed on Linux; built in on Mac/Windows)
+      - "host.docker.internal:host-gateway"
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      args:
+        # The URL your browser uses to reach the backend
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000}
     ports:
       - "3000:80"
     depends_on:

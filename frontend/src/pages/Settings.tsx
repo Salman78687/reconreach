@@ -92,7 +92,7 @@ export default function Settings() {
               },
               {
                 tier: "PAID", color: C2, env: "PLAN_TIER=paid",
-                sources: ["Everything in Free, plus:", "Hunter.io (domain + email)", "Apollo.io (person profile)", "Google Custom Search", "Twitter/X API", "NumVerify / Twilio"],
+                sources: ["Everything in Free, plus:", "Hunter.io (domain + email)", "Apollo.io (person profile)", "Google Custom Search", "Twitter/X API"],
               },
             ].map(({ tier, color, env, sources }) => (
               <div key={tier} style={{ background: "#060b14", border: `1px solid ${color}33`, borderRadius: 3, padding: "1rem" }}>
@@ -113,14 +113,14 @@ export default function Settings() {
         {/* LLM Config */}
         <Card title="LLM CONFIGURATION">
           <p style={{ margin: "0 0 1rem", color: C.textSub, fontSize: 12, fontFamily: "inherit" }}>
-            Uses self-hosted Llama model via OpenAI-compatible API. Configure in <Code>backend/.env</Code>.
+            Works with any OpenAI-compatible API: Ollama, vLLM, LM Studio or a hosted provider. Configure in <Code>backend/.env</Code>.
           </p>
           <Table
             cols={["Env Var", "Default", "Purpose"]}
             rows={[
-              [<Code>LLM_API_BASE</Code>, <Code>http://YOUR_LLM_HOST:8000/v1</Code>, <span style={{ color: C.textSub }}>API endpoint</span>],
+              [<Code>LLM_API_BASE</Code>, <Code>http://localhost:11434/v1</Code>, <span style={{ color: C.textSub }}>API endpoint</span>],
               [<Code>LLM_API_KEY</Code>, <Code>EMPTY</Code>, <span style={{ color: C.textSub }}>API key (EMPTY for local)</span>],
-              [<Code>LLM_MODEL</Code>, <span style={{ color: C.textSub, fontSize: 11 }}>meta-llama/Llama-4-Scout-17B-16E-Instruct</span>, <span style={{ color: C.textSub }}>Model name</span>],
+              [<Code>LLM_MODEL</Code>, <span style={{ color: C.textSub, fontSize: 11 }}>llama3.1</span>, <span style={{ color: C.textSub }}>Model name</span>],
             ]}
           />
         </Card>
@@ -165,7 +165,6 @@ export default function Settings() {
               [<span style={{ color: C.text, fontWeight: 700 }}>GitHub</span>, <span style={{ color: C.textSub }}>Dev profile (optional key)</span>, <Code>GITHUB_TOKEN</Code>, <span style={{ color: G }}>5,000 req/hr</span>],
               [<span style={{ color: C.text, fontWeight: 700 }}>Google CSE</span>, <span style={{ color: C.textSub }}>News + LinkedIn discovery</span>, <span><Code>GOOGLE_CSE_API_KEY</Code><br /><Code>GOOGLE_CSE_ID</Code></span>, <span style={{ color: G }}>100 req/day</span>],
               [<span style={{ color: C.text, fontWeight: 700 }}>Twitter/X</span>, <span style={{ color: C.textSub }}>Recent tweets</span>, <Code>TWITTER_BEARER_TOKEN</Code>, <span style={{ color: G }}>Basic tier</span>],
-              [<span style={{ color: C.text, fontWeight: 700 }}>NumVerify</span>, <span style={{ color: C.textSub }}>Phone validation</span>, <Code>NUMVERIFY_API_KEY</Code>, <span style={{ color: G }}>250 req/mo</span>],
             ]}
           />
         </Card>

@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8000",
+  // Set VITE_API_BASE_URL at build time to point the UI at a backend elsewhere.
+  baseURL: import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000",
   headers: { "Content-Type": "application/json" },
 });
 
